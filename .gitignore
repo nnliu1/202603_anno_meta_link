@@ -1,0 +1,32 @@
+# Jupyter
+.ipynb_checkpoints/
+
+# Environments
+venv/
+.env/
+
+# LinkML Generated Artifacts
+# It's better to let students generate these themselves
+/dist/
+*.pyc
+__pycache__/
+
+# OEP/Frictionless temp files
+.datahub/# Jupyter
+.ipynb_checkpoints/
+
+# Environments
+venv/
+.env/
+
+# LinkML Generated Artifacts
+# It's better to let students generate these themselves
+/dist/
+*.pyc
+__pycache__/
+
+# OEP/Frictionless temp files
+.datahub/
+
+# IDE
+.idea/

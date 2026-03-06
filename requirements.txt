@@ -8,6 +8,7 @@ linkml-runtime        # Needed to run the generated Python code
 linkml-renderer       # For visualizing schemas as diagrams (optional but cool)
 
 # OEP and Metadata Tools
+oep-client            # OEP Client
 omi                   # Open Metadata Integration library for OEP
 frictionless          # OEP metadata is based on Frictionless Data packages
 rdflib                # If you're doing any RDF/Semantic Web work (Tutorial Part 4)
