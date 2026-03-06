@@ -1,0 +1,32 @@
+id: https://w3id.org/oep/training/fair-metadata
+name: fair_metadata_example
+prefixes:
+  linkml: https://w3id.org/linkml/
+
+# We define a reusable base for all our classes
+classes:
+  CommonMetadata:
+    abstract: true  # This means you can't have a standalone 'CommonMetadata' object
+    attributes:
+      _comment:
+        description: "Internal didactic note or documentation."
+        required: false
+
+  DatasetMetadata:
+    is_a: CommonMetadata  # Inherits the _comment field
+    attributes:
+      title:
+        required: true
+      pid_doi:
+        pattern: "^10.[0-9]{4,9}/[-._;()/:a-zA-Z0-9]+$"
+      license:
+        range: LicenseEnum
+        required: true
+
+enums:
+  LicenseEnum:
+    permissible_values:
+      CC-BY-4.0:
+        description: "Open"
+      CC-BY-NC-ND-4.0:
+        description: "Restrictive"

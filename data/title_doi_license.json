@@ -1,0 +1,25 @@
+[
+    {
+        "_comment": "VALID: The Gold Standard. Meets all regex and enum constraints.",
+        "title": "Solar Output 2026",
+        "pid_doi": "10.1234/zenodo.5678",
+        "license": "CC-BY-4.0"
+    },
+    {
+        "_comment": "INVALID: F-Principle failure. The PID is a URL, not a raw DOI string.",
+        "title": "Wind Farm Data",
+        "pid_doi": "https://doi.org/10.1038/s415",
+        "license": "CC-BY-4.0"
+    },
+    {
+        "_comment": "INVALID: I-Principle failure. Title is a required field in LinkML.",
+        "pid_doi": "10.5555/12345",
+        "license": "CC-BY-4.0"
+    },
+    {
+        "_comment": "INVALID: R-Principle failure. 'Public Domain' is not in the allowed LicenseEnum.",
+        "title": "Grid Stability Logs",
+        "pid_doi": "10.9999/grid.001",
+        "license": "Public Domain"
+    }
+]
