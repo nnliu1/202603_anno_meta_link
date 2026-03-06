@@ -1,4 +1,4 @@
-### Part 1: 10:50 bis 11:35 - Implementing The FAIR-Principles - Planing Phase
+### Part 1: 09:00 bis 09:15 - Implementing The FAIR-Principles - Planing Phase
 
 - **Define** the four core elements of the FAIR acronym (Findable, Accessible, Interoperable, Reusable)
 	- **Identify** the specific RDMO question categories (e.g., _Metadata_, _Documentation_, _Long-term Preservation_) that correspond directly to each of the four FAIR principles
@@ -13,7 +13,7 @@
 - **Develop** a comprehensive Data Management Plan (DMP) section that strategically addresses at least three sub-principles of the 'A' (Accessible) principle.
 	- **Generate** a complete, funder-compliant Data Management Plan (DMP) for a research proposal using the **RDMO tool**, strategically incorporating solutions for all FAIR principles
 
-### Part 2: 12:15 bis 13:00 - Integrating Research Data Management in Research Operation
+### Part 2: 09:15 bis 09:45 - Integrating Research Data Management in Research Operation
 
 - **List** the mandatory data records (e.g., metadata files, raw data, analysis scripts) required for project closure according to institutional RDM policy
 	- **Identify** the mandatory metadata fields (e.g., sample ID, instrument ID, timestamp) that must be captured and logged in the **Electronic Lab Notebook (ELN)** upon initial data acquisition
@@ -27,7 +27,8 @@
 	- **Compare** and **evaluate** the data integrity of two data collection methods: 1) manual entry into a spreadsheet versus 2) automated capture via a **message broker pipeline**, justifying the superior method based on **verifiability** criteria
 - **Develop** a comprehensive, step-by-step **workflow diagram** that seamlessly integrates automated metadata creation and repository deposit into the regular data processing pipeline of the project
 	- **Design** a resilient, end-to-end RDM workflow for data collection that starts with an instrument, passes through a **message broker** for standardisation, and deposits fully documented raw data directly into the **ELN**
-### Part 3: 10:00 - 10:45 - Recording and Transforming Metadata, Serialisation and Format Issues
+
+### Part 3: 09:45 - 10:15 - Recording and Transforming Metadata, Serialisation and Format Issues
 
 - **Recall** the core components (e.g., Creator, Date, Title, Keywords) of a minimal metadata standard such as **Dublin Core**
 	- **Recall** the structural differences between common metadata serialization formats, such as **XML**, **JSON**, and **CSV**
@@ -43,7 +44,7 @@
 	- **Transform** a project's internal, proprietary metadata scheme into a **standardized serialization format** (e.g., using a dedicated parsing script or **XSLT** transformation) that complies with repository requirements
 
 
-### Part 4: 10:50 - 11:35 - Using Standards and Vocabularies
+### Part 4: 10:30 - 11:00 - Using Standards and Vocabularies (Nan)
 
 - **List** three examples of knowledge organisation systems used in RDM, such as **controlled vocabularies**, **thesauri**, and **ontologies**
 	- **Recall** the core components of the **Protégé** user interface necessary for defining classes, properties, and axioms within an ontology
@@ -57,7 +58,7 @@
 	- **Justify** the decision to use an advanced feature in **Protégé** (e.g., **reasoner queries**) to validate the **semantic consistency** of newly asserted mappings between terms from different sources
 - **Develop** a simple, internal **controlled vocabulary** for recurring experimental variables within a research project and integrate it into the project's **Electronic Lab Notebook (ELN)** template
 	- **Develop** a **LinkML data model** that formally expresses the **semantic similarities** identified via **Protégé mapping**, thereby generating a standardised schema for cross-project data exchange
-### Part 5: 12:15 - 13:00 - Publish Metadata
+### Part 5: 11:00 - 12:00 - Publish Metadata
 
 - **Identify** the mandatory submission fields (e.g., DOI registration requirement, licensing field) required by the **KITOpen** metadata submission form
 	- **List** the specific **domain-relevant metadata properties** (e.g., energy carrier type, generation technology) that are unique to the **Open Energy Platform (OEP)**
