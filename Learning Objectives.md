@@ -60,16 +60,16 @@
 	- **Develop** a **LinkML data model** that formally expresses the **semantic similarities** identified via **Protégé mapping**, thereby generating a standardised schema for cross-project data exchange
 ### Part 5: 11:00 - 12:00 - Publish Metadata
 
-- **Identify** the mandatory submission fields (e.g., DOI registration requirement, licensing field) required by the **KITOpen** metadata submission form
+- **Identify** the mandatory submission fields (e.g., DOI registration requirement, licensing field) required by the **Zenodo** metadata submission form
 	- **List** the specific **domain-relevant metadata properties** (e.g., energy carrier type, generation technology) that are unique to the **Open Energy Platform (OEP)**
-- **Summarise** the process by which **KITOpen** assigns a **Persistent Identifier (PID)** (like a DOI) and how this mechanism fulfils the 'F' (Findable) principle
+- **Summarise** the process by which **Zenodo** assigns a **Persistent Identifier (PID)** (like a DOI) and how this mechanism fulfils the 'F' (Findable) principle
 	- **Illustrate** how the community standards enforced by the **OEP** directly enhance the **Interoperability** ('I') of the published metadata for energy researchers
-- **Upload** a fully documented dataset and its associated metadata file to the **KITOpen** repository, ensuring all required fields are correctly populated and validated
+- **Upload** a fully documented dataset and its associated metadata file to the **Zenodo** repository, ensuring all required fields are correctly populated and validated
 	- **Populate** an OEP metadata submission template using **controlled vocabularies** (e.g., NUTS codes for geographic regions) relevant to energy systems research
-- **Differentiate** between the institutional metadata schema used by **KITOpen** and a general schema like Dublin Core, and **analyse** where additional mapping or enrichment is required for institutional compliance
-	- **Compare** the required access policy settings between a general repository (like KITOpen) and the **OEP**, and **analyse** how the OEP's policy facilitates collaborative data use
-- **Appraise** a draft KITOpen metadata record to ensure the selected access and **reuse license** (e.g., CC-BY) appropriately balances institutional policy with the 'A' and 'R' principles
+- **Differentiate** between the institutional metadata schema used by **Zenodo** and a general schema like Dublin Core, and **analyse** where additional mapping or enrichment is required for institutional compliance
+	- **Compare** the required access policy settings between a general repository (like Zenodo) and the **OEP**, and **analyse** how the OEP's policy facilitates collaborative data use
+- **Appraise** a draft Zenodo metadata record to ensure the selected access and **reuse license** (e.g., CC-BY) appropriately balances institutional policy with the 'A' and 'R' principles
 	- **Justify** the decision to **cross-reference** the OEP metadata entry with a corresponding publication in a publication database, assessing the benefit to the dataset's **Find-ability** score
-- **Draft** the final, publicly visible **data citation** and **abstract** for a dataset, optimising the text for indexing and search-ability within the **KITOpen** platform
-	- **Synthesise** a final publication strategy that integrates the institutional requirements of **KITOpen** with the domain-specific indexing capabilities of the **OEP** for maximum dissemination and impact
+- **Draft** the final, publicly visible **data citation** and **abstract** for a dataset, optimising the text for indexing and search-ability within the **Zenodo** platform
+	- **Synthesise** a final publication strategy that integrates the institutional requirements of **Zenodo** with the domain-specific indexing capabilities of the **OEP** for maximum dissemination and impact
 	
