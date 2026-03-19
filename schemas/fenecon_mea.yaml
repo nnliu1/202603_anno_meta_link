@@ -44,7 +44,7 @@ classes:
         description: "Control mode identifier."
       activepower:
         range: float
-        description: "Measured active power in Watts/kW."
+        description: "Measured active power in kW."
       soc:
         range: integer
         description: "State of Charge percentage (0-100)."
