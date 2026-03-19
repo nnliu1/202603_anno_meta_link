@@ -1,4 +1,6 @@
 import json
+import os
+
 import paho.mqtt.client as mqtt
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,7 +12,7 @@ from linkml_runtime.loaders import json_loader
 import sys
 from pathlib import Path
 
-sys.path.append(str(Path(__file__).resolve().parents[2]))
+sys.path.append(str(Path(__file__).resolve().parents[2])) # needed for some operating systems
 
 from models.fenecon_mea.datamodel import SensorPayload
 
@@ -18,7 +20,9 @@ from models.fenecon_mea.datamodel import SensorPayload
 MQTT_BROKER = "elab-cmvc001.server.elab2.kit.edu"  # Change to your broker IP if not local
 MQTT_PORT = 10883
 MQTT_TOPIC = "testing/fenecon/mea/130"
-COLLECTION_DURATION = 240  # How long to listen (seconds)
+COLLECTION_DURATION = 640  # How long to listen (seconds)
+SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
+ACQUISITION_PATH = "acquisitions"
 
 # Global list to store incoming data
 received_data = []
@@ -77,6 +81,27 @@ def plot_data():
     plt.tight_layout()
     plt.show()
 
+def serialise_data():
+    if not received_data:
+        print("No data received.")
+        return
+
+    df = pd.DataFrame(received_data)
+
+    # 1. Your Metadata
+    metadata = {
+        "project": "MQTT Plotter",
+        "topic": MQTT_TOPIC.replace("/", "_"),
+        "duration": COLLECTION_DURATION,
+        "version": "v11",
+        "status": "raw"
+    }
+    timestamp = datetime.now().strftime("%Y%m%d%H%M")
+    filename = f"{metadata['project']}_{timestamp}_{metadata['duration']:04}_sec_{metadata['topic']}_{metadata['version']}_{metadata['status']}.csv"
+    filepath = SCRIPT_DIR / Path(ACQUISITION_PATH) / filename
+    print(f"Saving data to {filepath}...")
+
+    df.to_csv(filepath, index=False)
 
 # --- Main Execution ---
 def main():
@@ -108,8 +133,12 @@ def main():
     print("\nData Summary:")
     print(df.describe())
 
+    # Serialising
+    serialise_data()
+
     # Plotting
     plot_data()
+
 
 if __name__ == "__main__":
     main()
