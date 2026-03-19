@@ -3,4 +3,9 @@ name = "repo"
 version = "0.1.0"
 description = "Training project for Annotation, Metadata and Linking"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "linkml-runtime>=1.10.0",
+    "matplotlib>=3.10.8",
+    "paho-mqtt>=2.1.0",
+    "pandas>=3.0.1",
+]

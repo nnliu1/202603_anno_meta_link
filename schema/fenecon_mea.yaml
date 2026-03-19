@@ -1,0 +1,46 @@
+id: https://example.org/sensor-data
+name: sensor_payload
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+default_range: string
+
+classes:
+  SensorPayload:
+    description: "The root object for the MQTT sensor message."
+    attributes:
+      tags:
+        range: Metadata
+        description: "Static identifying metadata for the devices."
+        required: true
+      fields:
+        range: Measurements
+        description: "Dynamic telemetry data from the sensors."
+        required: true
+      time:
+        range: integer
+        description: "Unix nanosecond timestamp."
+        required: true
+
+  Metadata:
+    description: "Unique identifiers for BESS and FEMS units."
+    attributes:
+      BESS_id:
+        range: integer
+        required: true
+      FEMS_id:
+        range: integer
+        required: true
+
+  Measurements:
+    description: "The actual telemetry values recorded."
+    attributes:
+      ctrlmode:
+        range: integer
+        description: "Control mode identifier."
+      activepower:
+        range: float
+        description: "Measured active power in Watts/kW."
+      soc:
+        range: integer
+        description: "State of Charge percentage (0-100)."
