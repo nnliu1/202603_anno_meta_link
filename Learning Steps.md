@@ -1,6 +1,6 @@
 # Learning Steps
 
-## Preliminaries
+## A- Preliminaries
 
 - There are two possibilities to follow the hands on exercises:
   - https://mybinder.org, oder
@@ -87,3 +87,84 @@ Here is the "cheat sheet" for using `uv` effectively:
 | **Install a package**            | `uv pip install <package_name>`                     |
 | **Sync from requirements.txt**   | `uv pip sync requirements.txt`                      |
 | **Compile a lockfile**           | `uv pip compile pyproject.toml -o requirements.txt` |
+
+## B- Target of the Workshop
+1- Publish a distribution of two datasets:
+- Measured active power photovoltaic on the top roof of IAI, after aggregation
+- The content of this training material for future reference.
+
+2- Define a Workflow for future publications, where our understanding of the FAIR-principles is implemented.
+
+*Discuss and elaborate those targets to define an action list*
+
+| **Task**                                            | **Responsable** |
+|-----------------------------------------------------|-----------------|
+| Which different type of data can be generated       | All             |
+| Describe the plan phase of an experiment            | Anis            |
+| Decide which tool should be used for the plan phase | Nan             |
+| etc.                                                | All             |
+
+
+
+## C- Visualise the Workflow
+- mermaid is a modern language to describe graphs within mark-down files.
+- here is an example of a generic workflow
+- another way to represent workflows, more professional is BPMN (try https://bpmn.io and https://www.omg.org/spec/BPMN/2.0/)
+
+```mermaid
+---
+config:
+  layout: elk
+  theme: base
+  themeVariables:
+    primaryColor: "#778899"
+    edgeLabelBackground: "#ffffff"
+---
+flowchart TD
+    Start(( )) --> Plan[Plan data collection & publication<br/><i>Tools, Guidelines, Schemas, Platforms, etc.</i>]
+    
+    Plan --> Collect[Collect raw data<br/><i>Through research operations</i>]
+    
+    Collect --> Clean[Initial Data Cleansing/Preprocessing<br/><i>Generate the scaffold, i.e. RO-Crate</i>]
+
+    %% Parallel Annotation Setup
+    Clean --> Split1{ }
+    Split1 --> Task[Assign Annotation Tasks]
+    Split1 --> Env[Setup Annotation Environment]
+    
+    Task --> Join1{ }
+    Env --> Join1
+    
+    Join1 --> Annotate[Annotate Data<br/><i>Human or Semi-Automated</i>]
+    
+    Annotate --> QA[Quality Assurance - QA]
+    
+    QA --> Doc[Generate Data Documentation<br/><i>Metadata, README</i>]
+
+    %% Sensitivity Logic
+    Doc --> Sensitive{Data Sensitive?}
+    
+    Sensitive -- Yes --> Anon[Anonymize / De-identify Data]
+    Anon --> Restrict[Select Restricted Access Repository]
+    
+    Sensitive -- No --> Public[Select Public Repository]
+    
+    Restrict --> Submit[Submit Dataset to Repository]
+    Public --> Submit
+
+    %% Parallel Repository Actions
+    Submit --> Fork1{ }
+    Fork1 --> Review[Repository performs<br/>Curation & Review]
+    Fork1 --> DOI[Acquire Persistent<br/>Identifier - DOI]
+    
+    Review --> Join2{ }
+    DOI --> Join2
+    
+    Join2 --> Final[Final Publication of<br/>Dataset & Metadata]
+    Final --> Stop((( )))
+
+    %% Styling for Research Paper Aesthetic
+    style Plan fill:#f9f9f9,stroke:#778899,stroke-width:2px
+    style Clean fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    style Final fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
+    style Sensitive fill:#ececff,stroke:#9370db
