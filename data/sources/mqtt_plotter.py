@@ -1,5 +1,4 @@
 import json
-import os
 
 import paho.mqtt.client as mqtt
 import pandas as pd
@@ -20,18 +19,18 @@ from models.fenecon_mea.datamodel import SensorPayload
 MQTT_BROKER = "elab-cmvc001.server.elab2.kit.edu"  # Change to your broker IP if not local
 MQTT_PORT = 10883
 MQTT_TOPIC = "testing/fenecon/mea/130"
-COLLECTION_DURATION = 640  # How long to listen (seconds)
-SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
+COLLECTION_DURATION = 1640  # How long to listen (seconds)
+SCRIPT_DIR = Path(__file__).resolve().parent
 ACQUISITION_PATH = "acquisitions"
 
 # Global list to store incoming data
 received_data = []
 
 
-def on_message(client, userdata, msg):
+def on_message(client, userdata, message):
     try:
         # 1. Parse raw byte-string to JSON dict
-        raw_payload = json.loads(msg.payload.decode())
+        raw_payload = json.loads(message.payload.decode())
 
         # 2. Validate and Load into LinkML Class
         # This will raise an error if the JSON doesn't match your schema
