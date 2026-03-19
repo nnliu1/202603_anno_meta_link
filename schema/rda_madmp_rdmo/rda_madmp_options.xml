@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdmo xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+    <optionset dc:uri="https://github.com/RDA-DMP-Common/optionset/access_rights">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>access_rights</key>
+        <path>access_rights</path> </optionset>
+
+    <option dc:uri="https://github.com/RDA-DMP-Common/option/access_rights/open">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>open</key>
+        <path>open</path>
+        <optionset dc:uri="https://github.com/RDA-DMP-Common/optionset/access_rights"> <order>0</order> </optionset>
+        <text lang="en">Open Access</text>
+    </option>
+
+    <option dc:uri="https://github.com/RDA-DMP-Common/option/access_rights/shared">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>shared</key>
+        <path>shared</path>
+        <optionset dc:uri="https://github.com/RDA-DMP-Common/optionset/access_rights"> <order>1</order> </optionset>
+        <text lang="en">Shared (Restricted Access)</text>
+    </option>
+
+
+    <optionset dc:uri="https://github.com/RDA-DMP-Common/optionset/licenses">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>licenses</key>
+        <path>licenses</path>
+    </optionset>
+
+    <option dc:uri="https://github.com/RDA-DMP-Common/option/licenses/cc-by-4-0">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>cc_by_4_0</key>
+        <path>cc-by-4-0</path>
+        <optionset dc:uri="https://github.com/RDA-DMP-Common/optionset/licenses">
+            <order>0</order> </optionset>
+        <text lang="en">Creative Commons Attribution 4.0 International (CC-BY-4.0)</text>
+    </option>
+
+    <option dc:uri="https://github.com/RDA-DMP-Common/option/licenses/cc0-1-0">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>cc0_1_0</key>
+        <path>cc0-1-0</path>
+        <optionset dc:uri="https://github.com/RDA-DMP-Common/optionset/licenses">
+            <order>1</order> </optionset>
+        <text lang="en">Creative Commons Public Domain Dedication (CC0-1.0)</text>
+    </option>
+
+</rdmo>

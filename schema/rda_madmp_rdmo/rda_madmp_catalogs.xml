@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdmo xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+    <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>rda_madmp</key>
+        <path>rda_madmp</path>
+        <title lang="en">RDA Machine-Actionable DMP</title>
+        <help lang="en">This questionnaire is aligned with the RDA maDMP Common Standard.</help>
+    </catalog>
+
+    <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/administrative">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>administrative</key>
+        <path>administrative</path>
+        <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+            <order>0</order>
+        </catalog>
+        <title lang="en">Administrative Data</title>
+    </section>
+
+    <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/dataset">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>dataset</key>
+        <path>dataset</path>
+        <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+            <order>1</order>
+        </catalog>
+        <title lang="en">Dataset Description</title>
+    </section>
+
+    <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/host_storage">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>host_storage</key>
+        <path>host_storage</path>
+        <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+            <order>2</order>
+        </catalog>
+        <title lang="en">Host &amp; Storage</title>
+    </section>
+
+    <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>costs_legal</key>
+        <path>costs_legal</path>
+        <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+            <order>3</order>
+        </catalog>
+        <title lang="en">Costs &amp; Legal</title>
+    </section>
+
+</rdmo>

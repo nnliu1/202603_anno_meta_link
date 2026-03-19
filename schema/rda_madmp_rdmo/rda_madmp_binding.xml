@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdmo xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+    <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>rda_madmp</key>
+        <path>rda_madmp</path>
+
+        <sections>
+            <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/administrative">
+                <order>0</order>
+            </section>
+            <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/dataset">
+                <order>1</order>
+            </section>
+            <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/host_storage">
+                <order>2</order>
+            </section>
+            <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal">
+                <order>3</order>
+            </section>
+        </sections>
+    </catalog>
+
+</rdmo>

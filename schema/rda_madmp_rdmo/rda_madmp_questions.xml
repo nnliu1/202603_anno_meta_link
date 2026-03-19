@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdmo xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+    <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>rda_madmp</key>
+        <path>rda_madmp</path>
+        <title lang="en">RDA Machine-Actionable DMP</title>
+    </catalog>
+
+    <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/administrative">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>administrative</key>
+        <path>administrative</path>
+        <order>0</order>
+        <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+            <order>0</order>
+        </catalog>
+        <title lang="en">Administrative Data</title>
+    </section>
+
+    <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/administrative/project">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>project_info</key>
+        <path>project_info</path>
+        <order>0</order>
+        <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/administrative">
+            <order>0</order>
+        </section>
+        <title lang="en">Project &amp; Contact</title>
+    </questionset>
+
+    <question dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/administrative/project/title">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>project_title</key>
+        <path>project_title</path>
+        <order>0</order>
+        <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/administrative/project">
+            <order>0</order>
+        </questionset>
+        <attribute dc:uri="https://github.com/RDA-DMP-Common/domain/dmp/project/title"/>
+        <widget_type>text</widget_type>
+        <text lang="en">Project Title</text>
+    </question>
+
+    <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/dataset">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>dataset</key>
+        <path>dataset</path>
+        <order>1</order>
+        <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+            <order>1</order>
+        </catalog>
+        <title lang="en">Dataset Description</title>
+    </section>
+
+    <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/dataset/details">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>dataset_details</key>
+        <path>dataset_details</path>
+        <order>0</order>
+        <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/dataset">
+            <order>0</order>
+        </section>
+        <title lang="en">Dataset Details</title>
+    </questionset>
+
+    <question dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/dataset/details/type">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>dataset_type</key>
+        <path>dataset_type</path>
+        <order>0</order>
+        <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/dataset/details">
+            <order>0</order>
+        </questionset>
+        <attribute dc:uri="https://github.com/RDA-DMP-Common/domain/dmp/dataset/type"/>
+        <widget_type>text</widget_type>
+        <text lang="en">What is the type of the dataset? (e.g. Software, Image, Text)</text>
+    </question>
+
+    <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/host_storage">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>host_storage</key>
+        <path>host_storage</path>
+        <order>2</order>
+        <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+            <order>2</order>
+        </catalog>
+        <title lang="en">Host &amp; Storage</title>
+    </section>
+
+    <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/host_storage/repo">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>repo_info</key>
+        <path>repo_info</path>
+        <order>0</order>
+        <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/host_storage">
+            <order>0</order>
+        </section>
+        <title lang="en">Repository &amp; Access</title>
+    </questionset>
+
+    <question dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/host_storage/repo/url">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>host_url</key>
+        <path>host_url</path>
+        <order>0</order>
+        <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/host_storage/repo">
+            <order>0</order>
+        </questionset>
+        <attribute dc:uri="https://github.com/RDA-DMP-Common/domain/dmp/dataset/host/url"/>
+        <widget_type>text</widget_type>
+        <text lang="en">Host/Repository URL</text>
+    </question>
+
+    <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>costs_legal</key>
+        <path>costs_legal</path>
+        <order>3</order>
+        <catalog dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp">
+            <order>3</order>
+        </catalog>
+        <title lang="en">Costs &amp; Legal</title>
+    </section>
+
+    <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal/licensing">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>licensing</key>
+        <path>licensing</path>
+        <order>0</order>
+        <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal">
+            <order>0</order>
+        </section>
+        <title lang="en">Legal &amp; Licensing</title>
+    </questionset>
+
+    <question dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal/licensing/ethics_exists">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>ethics_exists</key>
+        <path>ethics_exists</path>
+        <order>0</order>
+        <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal/licensing">
+            <order>0</order>
+        </questionset>
+        <attribute dc:uri="https://github.com/RDA-DMP-Common/domain/dmp/project/ethical_issues/exists"/>
+        <widget_type>radio</widget_type>
+        <text lang="en">Are there any ethical issues?</text>
+    </question>
+
+    <question dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal/licensing/license">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>license</key>
+        <path>license</path>
+        <order>1</order>
+        <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal/licensing">
+            <order>1</order>
+        </questionset>
+        <attribute dc:uri="https://github.com/RDA-DMP-Common/domain/dmp/dataset/license"/>
+        <optionset dc:uri="https://github.com/RDA-DMP-Common/optionset/licenses"/>
+        <widget_type>select</widget_type>
+        <text lang="en">What is the dataset license?</text>
+    </question>
+
+    <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal/budget">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>budget</key>
+        <path>budget</path>
+        <order>1</order>
+        <section dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal">
+            <order>1</order>
+        </section>
+        <title lang="en">Budget</title>
+    </questionset>
+
+    <question dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal/budget/currency">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>currency</key>
+        <path>currency</path>
+        <order>0</order>
+        <questionset dc:uri="https://github.com/RDA-DMP-Common/questions/rda_madmp/costs_legal/budget">
+            <order>0</order>
+        </questionset>
+        <attribute dc:uri="https://github.com/RDA-DMP-Common/domain/dmp/dataset/cost/currency_code"/>
+        <optionset dc:uri="https://github.com/RDA-DMP-Common/optionset/currencies"/>
+        <widget_type>select</widget_type>
+        <text lang="en">Cost Currency</text>
+    </question>
+
+</rdmo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdmo xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+    <condition dc:uri="https://github.com/RDA-DMP-Common/conditions/has_ethical_issues">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>has_ethical_issues</key>
+        <path>has_ethical_issues</path>
+        <source dc:uri="https://github.com/RDA-DMP-Common/domain/dmp/project/ethical_issues/exists"/>
+        <relation>eq</relation>
+        <target_value>True</target_value>
+    </condition>
+
+</rdmo>

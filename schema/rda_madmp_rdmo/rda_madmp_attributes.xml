@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdmo xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>dmp</key>
+        <parent dc:uri="" />
+    </attribute>
+
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/contact">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>contact</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp" />
+    </attribute>
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/contact/contact_id">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>contact_id</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp/contact" />
+    </attribute>
+
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/project">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>project</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp" />
+    </attribute>
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/project/funding">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>funding</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp/project" />
+    </attribute>
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/project/funding/funder_id">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>funder_id</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp/project/funding" />
+    </attribute>
+
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>dataset</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp" />
+    </attribute>
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset/type">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>type</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset" />
+    </attribute>
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset/personal_data">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>personal_data</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset" />
+    </attribute>
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset/sensitive_data">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>sensitive_data</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset" />
+    </attribute>
+
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset/distribution">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>distribution</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset" />
+    </attribute>
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset/distribution/license">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>license</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp/dataset/distribution" />
+    </attribute>
+
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/cost">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>cost</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp" />
+    </attribute>
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/cost/amount">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>amount</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp/cost" />
+    </attribute>
+    <attribute dc:uri="https://github.com/RDA-DMP-Common/dmp/cost/currency_code">
+        <uri_prefix>https://github.com/RDA-DMP-Common</uri_prefix>
+        <key>currency_code</key>
+        <parent dc:uri="https://github.com/RDA-DMP-Common/dmp/cost" />
+    </attribute>
+</rdmo>
