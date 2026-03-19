@@ -7,6 +7,11 @@ from datetime import datetime
 from linkml_runtime.loaders import json_loader
 # Note: You must generate 'datamodel.py' first using:
 # uv run gen-python schema.yaml > datamodel.py
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).resolve().parents[2]))
+
 from models.fenecon_mea.datamodel import SensorPayload
 
 # --- Configuration ---
