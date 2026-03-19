@@ -3,6 +3,10 @@ name: sensor_payload
 prefixes:
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
+
+imports:
+  - linkml:types
+
 default_range: string
 
 classes:
