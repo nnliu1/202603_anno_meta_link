@@ -48,6 +48,7 @@ def on_message(client, userdata, message):
         received_data.append(reading)
         print(f"Validated Data from BESS {reading['BESS_id']}: Power={reading['activepower']}, SoC={reading['soc']}%")
 
+
     except Exception as e:
         print(f"Invalid Payload: {e}")
 
