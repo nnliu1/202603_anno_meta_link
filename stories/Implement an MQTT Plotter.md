@@ -23,3 +23,5 @@ uv run linkml-validate -s schema.yaml data.json
 ```
 
 To integrate LinkML validation into your MQTT listener, we will use the linkml-runtime to parse and validate the incoming JSON against your schema. This ensures that if a sensor sends a malformed payload (e.g., missing the BESS_id), the script catches it before it breaks your plot.
+
+![img.png](img.png)

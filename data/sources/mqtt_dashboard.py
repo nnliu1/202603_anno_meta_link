@@ -3,6 +3,7 @@ import os
 
 import panel as pn
 import paho.mqtt.client as mqtt
+from paho.mqtt.enums import CallbackAPIVersion
 import pandas as pd
 import holoviews as hv
 from holoviews import streams
@@ -33,18 +34,63 @@ LINKML_NAME = "fenecon_mea.yaml"
 
 pn.extension(design='material')
 
-# --- DATA STORAGE ---
-data = {'time': [], 'value': []}
-df = pd.DataFrame(data)
-view = SchemaView(PROJECT_DIR / SCHEMA_PATH / LINKML_NAME)
+# --- 1. Setup Paths correctly ---
+# Assuming PROJECT_DIR is already a Path object from our previous step
+# If SCHEMA_PATH is "schema" and LINKML_NAME is "sensor.yaml"
+full_schema_path = PROJECT_DIR / SCHEMA_PATH / LINKML_NAME
+
+# --- 2. Get Description from linkML ---
+view = SchemaView(full_schema_path)
 cls_desc = view.get_class("SensorPayload").description
 print(f"Class Description: {cls_desc}")
 
-# --- PANEL COMPONENTS ---
-title = pn.pane.Markdown("# Live MQTT Monitor")
-gauge = pn.indicators.Gauge(name='Current Value', value=0, bounds=(-2000, 2000), format='{value}')
-plot_pane = pn.pane.HoloViews(hv.Curve(df).opts(width=600, color='teal', responsive=True))
+# --- 3. Initialize empty DataFrame ---
+df = pd.DataFrame(columns=['time', 'power', 'soc', 'ctrl_mode'])
 
+# --- 4. Define the UI Components ---
+title = pn.pane.Markdown(f"# BESS Monitor\n**Schema Info:** {cls_desc}")
+
+gauge = pn.indicators.Gauge(
+    name='Active Power',
+    value=0,
+    bounds=(-2400, 2400),
+    format='{value} W',
+    sizing_mode='stretch_both'
+)
+
+# Set heights here once to keep things uniform
+PLOT_HEIGHT = 300
+
+# Initialize Power Plot (to go next to the Gauge)
+power_plot_pane = pn.pane.HoloViews(
+    hv.Curve(df, kdims='time', vdims='power').opts(
+        title="Active Power (W)",
+        color="blue",
+        responsive=True,
+        height=PLOT_HEIGHT # Matches Gauge visual height better
+    ),
+    sizing_mode='stretch_both'
+)
+
+soc_plot_pane = pn.pane.HoloViews(
+    hv.Curve(df, kdims='time', vdims='soc').opts(
+        title="SoC %",
+        color="green",
+        responsive=True,
+        height=PLOT_HEIGHT
+    ),
+    sizing_mode='stretch_width'
+)
+
+ctrl_plot_pane = pn.pane.HoloViews(
+    hv.Curve(df, kdims='time', vdims='ctrl_mode').opts(
+        title="Control Mode",
+        color="purple",
+        responsive=True,
+        height=PLOT_HEIGHT
+    ),
+    sizing_mode='stretch_width'
+)
 
 # --- MQTT SETUP ---
 def on_message(client, userdata, message):
@@ -58,33 +104,63 @@ def on_message(client, userdata, message):
         data_obj = json_loader.loads(raw_payload, target_class=SensorPayload)
 
         # 3. Extract specific fields (using dot-notation from LinkML)
-        # Assuming you want to plot 'activepower' for this example
-        val = data_obj.fields.activepower
+        power = data_obj.fields.activepower
+        soc = data_obj.fields.soc
+        ctrl_mode = data_obj.fields.ctrlmode
         ts = datetime.fromtimestamp(data_obj.time / 1e9)
         bess_id = data_obj.tags.BESS_id
-        soc = data_obj.fields.soc
-        print(f"Validated Data from BESS {bess_id}: Power={val}, SoC={soc}%")
+
+        print(f"Validated Data from BESS {bess_id}: Power={power}, SoC={soc}%, Ctrl Mode={ctrl_mode}")
 
 
         # 4. Update Gauge UI
-        gauge.value = val
+        gauge.value = power
         title.object = f"# Monitor BESS_ID: {bess_id}"  # Dynamic title
 
         # 5. Update Pandas DataFrame for the Plot
-        new_entry = {'time': ts, 'value': soc}
-        df = pd.concat([df, pd.DataFrame([new_entry])]).tail(200)
+        new_entry = pd.DataFrame([{
+            'time': ts,
+            'power': power,
+            'soc': soc,
+            'ctrl_mode': ctrl_mode
+        }])
+        df = pd.concat([df, new_entry]).tail(1200)
 
-        # 6. Refresh Plot Pane
-        plot_pane.object = hv.Curve(df, 'time', 'value').opts(
+        # 6. Refresh SoC Plot (Line)
+        soc_plot_pane.object = hv.Curve(df, 'time', 'soc').opts(
             title=f"Real-time SoC - {bess_id}",
-            shared_axes=False,
+            color="green",
+            ylabel="SoC %",
+            responsive=True
+        )
+
+        # Only apply interpolation if we have at least 2 points to "step" between
+        if len(df) > 1:
+            # Safe to use interpolation now
+            ctrl_plot_pane.object = hv.Curve(df, 'time', 'ctrl_mode').opts(
+                title="Control Mode State",
+                color="purple",
+                interpolation='steps-post',
+                responsive=True,
+                height=PLOT_HEIGHT
+            )
+        else:
+            # Just a simple update for the first point
+            ctrl_plot_pane.object = hv.Curve(df, 'time', 'ctrl_mode').opts(
+                responsive=True, height=PLOT_HEIGHT
+            )
+        # 8. Refresh Power Plot (Line)
+        power_plot_pane.object = hv.Curve(df, 'time', 'power').opts(
+            title=f"Power Trend - {bess_id}",
+            color="blue",
+            ylabel="Watts",
             responsive=True
         )
 
     except Exception as e:
         print(f"Data Validation Error: {e}")
 
-client = mqtt.Client()
+client = mqtt.Client(CallbackAPIVersion.VERSION2)
 client.on_message = on_message
 
 
@@ -99,11 +175,30 @@ thread = threading.Thread(target=start_mqtt, daemon=True)
 thread.start()
 
 # --- LAYOUT ---
-dashboard = pn.Column(
-    title,
-    pn.Row(gauge, plot_pane),
+
+# Top Row: Gauge on the left, Power Plot on the right
+top_row = pn.Row(
+    gauge,
+    power_plot_pane,
+    height=PLOT_HEIGHT + 50,
+    sizing_mode='stretch_width'
 )
 
-dashboard.servable()
+# Main Dashboard: Vertical stack
+dashboard = pn.Column(
+    title,
+    top_row,                       # Gauge + Power Plot
+    pn.Spacer(height=20),
+    soc_plot_pane,                 # SoC below
+    pn.Spacer(height=10),
+    ctrl_plot_pane,                # Ctrl Mode at the bottom
+    width=1000,                    # Increased width for the side-by-side layout
+    sizing_mode='stretch_width'
+)
 
+# Optional: Set fixed heights for consistency
+soc_plot_pane.height = 300
+ctrl_plot_pane.height = 300
+
+dashboard.servable()
 dashboard.show()  # This opens the dashboard in your browser
