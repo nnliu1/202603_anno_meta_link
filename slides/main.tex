@@ -1,0 +1,235 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{fontspec}
+\setmainfont{Arial}
+
+% --- PACKAGES ---
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{fontspec}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+\usepackage{xcolor}
+\usepackage{tikz} % Needed for \tikz \path commands
+\usepackage{csquotes}
+\usepackage{listings}
+
+\usepackage[backend=biber, style=apa, doi=true]{biblatex}
+\renewcommand*{\bibfont}{\normalfont\scriptsize}
+\addbibresource{bib/14281892.bib}
+\addbibresource{bib/berners.bib}
+\addbibresource{bib/turning.bib}
+\addbibresource{bib/fair.bib}
+\addbibresource{bib/platforms.bib}
+\addbibresource{bib/guide.bib}
+\addbibresource{bib/5727048.bib}
+
+
+
+
+% 1. COLOR DEFINITIONS (KIT & HMC)
+\definecolor{KITBlue}{RGB}{0, 98, 148}
+\definecolor{HMCBlue}{RGB}{0, 40, 100}
+\definecolor{HMCAccent}{RGB}{20, 200, 255}
+\definecolor{HMCMint}{RGB}{5, 229, 186}
+\definecolor{HMCClaim}{RGB}{0, 128, 64}
+\definecolor{LightGray}{RGB}{242, 242, 242}
+\definecolor{VeryLightGray}{RGB}{252, 252, 252}
+
+
+% 2. THEME APPLICATION (Minimalist)
+\usefonttheme{professionalfonts}
+\useinnertheme{default}
+\useoutertheme{miniframes} % Minimalist header
+% \setbeamertemplate{navigation symbols}{} % No navigation symbols
+
+% Custom Footline Definition to insert the logo
+\setbeamertemplate{footline}{
+  \leavevmode
+  \hbox{
+    % Right box: Logo and Frame Number
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}
+        \raisebox{-0.8ex}{\includegraphics[width=6ex]{figs/kit_logo}}
+      \raisebox{-0.4ex}{\includegraphics[width=10ex]{figs/hmc_logo}}|
+      \usebeamerfont{date in head/foot}\insertframenumber\hspace*{8ex}
+    \end{beamercolorbox}}
+    \vskip1ex
+}
+
+% 3. BEAMER COLOR SCHEMES
+\setbeamercolor{palette primary}{fg=white, bg=HMCBlue}
+\setbeamercolor{section in head/foot}{fg=white, bg=HMCBlue}
+\setbeamercolor{palette secondary}{fg=white, bg=HMCAccent}
+\setbeamercolor{structure}{fg=HMCAccent}
+\setbeamercolor{local structure}{fg=HMCAccent}
+\setbeamercolor{title}{bg=HMCBlue, fg=LightGray}
+\setbeamercolor{frametitle}{fg=HMCBlue, bg=white}
+\setbeamercolor{block title}{fg=HMCClaim, bg=LightGray}
+\setbeamercolor{block body}{fg=HMCBlue, bg=VeryLightGray}
+\setbeamercolor{author in head/foot}{bg=white, fg=HMCBlue}
+\setbeamercolor{title in head/foot}{bg=white, fg=HMCBlue}
+\setbeamercolor{date in head/foot}{bg=white, fg=HMCBlue}
+
+% 4. FONT CONFIGURATION
+% (Requires Noto Sans to be installed on your system)
+%% \setmainfont{Noto Sans} 
+%% \setsansfont{Noto Sans}
+\lstdefinelanguage{XML}{
+    basicstyle=\ttfamily\tiny,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    literate={>}{{{\color{HMCAccent}>}}}1
+             {<}{{{\color{HMCAccent}<}}}1
+}
+\lstdefinelanguage{yaml}{
+    basicstyle=\ttfamily\tiny,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    literate=
+   % {  }{
+   %   \makebox[0.5em][l]{\colorbox{HMCMint}{\phantom{p}}}
+   %   \makebox[0.5em][l]{\colorbox{HMCMint}{\phantom{p}}}
+   % }{2}
+             {,}{{{\color{HMCAccent},}}}1
+             {:}{{{\color{HMCAccent}:}}}1
+             {[}{{{\color{HMCAccent}{[}}}}1
+             {]}{{{\color{HMCAccent}{]}}}}1
+             {\{}{{{\color{HMCAccent}{\{}}}}1
+             {\}}{{{\color{HMCAccent}{\}}}}}1
+}
+\lstdefinelanguage{json}{
+    basicstyle=\ttfamily\tiny,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    literate={"}{{{\texttt{\char34}}}}1
+             {,}{{{\color{HMCAccent},}}}1
+             {:}{{{\color{HMCAccent}:}}}1
+             {[}{{{\color{HMCAccent}{[}}}}1
+             {]}{{{\color{HMCAccent}{]}}}}1
+             {\{}{{{\color{HMCAccent}{\{}}}}1
+             {\}}{{{\color{HMCAccent}{\}}}}}1
+}
+\lstdefinelanguage{CSV}{
+    basicstyle=\ttfamily\tiny,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    literate={,}{{{\color{HMCAccent},}}}1
+    {;}{{{\color{HMCAccent};}}}1, 
+}
+
+% 5. Define the switch \ifenablepauses
+\newif\ifenablepauses
+% Set the default state
+\enablepausestrue           % (for animated presentation)
+\enablepausesfalse          % (for static presentation)
+
+
+% --- METADATA & TITLE GRAPHICS ---
+\title{Metadata for Scientific Data Integrity}
+\subtitle{for Energy}
+\author{IG Training - HMC, Anis Koubaa, Nan Liu}%, Mirl Törsch}
+\institute{Karlsruhe Institute of Technology (KIT) \\
+\vspace{.4em}
+    \includegraphics[height=0.32cm]{figs/kit_logo.png}
+    \vspace{.4em}}
+
+\date{24. March 2026}
+
+% Add logos to the title page. 
+% Make sure 'kit_logo.png' and 'hmc_logo.png' are in the same folder.
+\titlegraphic{
+    \vspace{1.6em}
+    \includegraphics[height=0.64cm]{figs/hmc_Logo.png}
+}
+
+
+% ===================================================================
+% DOCUMENT BEGINS
+% ===================================================================
+
+\AtBeginDocument{
+    \ifenablepauses % Do nothing, \pause retains its normal behavior
+    \else % If pauses are disabled, redefine \pause to be an empty command (equivalent to \relax)
+      \let\pause\relax
+    \fi}
+    
+
+\begin{document}
+
+% --- TITLE PAGE ---
+%\begin{frame}[plain]
+%   % Use tikz to draw the image at the background layer (lower)
+%   \tikz[overlay, remember picture] \path (current page.south west) node[anchor=south west] {
+%       \includegraphics[width=\paperwidth]{figs/HMC-Training_Integrity_20251121-20_Indico.jpg}
+%   };
+%
+%\end{frame}
+
+\begin{frame}[plain]
+
+    \titlepage
+    
+\end{frame}
+
+% --- AGENDA ---
+{
+    \setbeamertemplate{background canvas}{
+        \includegraphics[width=\paperwidth,height=\paperheight]{figs/background_white.png}
+    }
+    \begin{frame}[plain]{Our Target: Publish a distribution of some datasets, on two different platforms}
+        \begin{block}{How we will Work}
+            \begin{enumerate}
+                \item \textbf We explore the core concepts and the "why"
+                \item \textbf We look at practical cases:
+                    \begin{itemize}
+                        \item Measured active power photovoltaic on the top roof of IAI, after aggregation
+                        \item Data gathered from an MQTT Broker
+                        \item The content of this training material for future reference
+                    \end{itemize}
+        \end{enumerate}
+        \end{block}
+    \end{frame}
+}
+
+% ===================================================================
+% PART 1: From Data Integrity to FAIR Principles
+% ===================================================================
+
+\include{d1p1}
+
+% ===================================================================
+% PART 2: Implementing The FAIR-Principles - Planning Phase
+% ===================================================================
+
+\include{d1p2}
+
+% ===================================================================
+% PART 3: Integrating RDM in Research Operation
+% ===================================================================
+
+\include{d1p3}
+
+% ===================================================================
+% PART 4: Recording and Transforming Metadata, Serialisation
+% ===================================================================
+
+\include{d2p4}
+
+% ===================================================================
+% PART 5: Using Standards and Vocabularies
+% ===================================================================
+
+\include{d2p5}
+
+% ===================================================================
+% PART 6: Publish Metadata
+% ===================================================================
+
+\include{d2p6}
+
+\end{document}
