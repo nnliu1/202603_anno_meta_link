@@ -152,6 +152,13 @@
 % DOCUMENT BEGINS
 % ===================================================================
 
+\AtBeginSection[]
+{
+  \begin{frame}{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
 \AtBeginDocument{
     \ifenablepauses % Do nothing, \pause retains its normal behavior
     \else % If pauses are disabled, redefine \pause to be an empty command (equivalent to \relax)
@@ -181,6 +188,7 @@
     \setbeamertemplate{background canvas}{
         \includegraphics[width=\paperwidth,height=\paperheight]{figs/background_white.png}
     }
+    \section{Target}
     \begin{frame}[plain]{Our Target: Publish a distribution of some datasets, on two different platforms}
         \begin{block}{How we will Work}
             \begin{enumerate}
